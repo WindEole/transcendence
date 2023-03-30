@@ -1,0 +1,16 @@
+Faireun workflow pour le lnt 
+
+Utiiliser swagger pour la com entre fornt et back 
+
+Prisma studio doit etre implementer 
+
+Faire du prisma seed
+
+
+QUAND CA SERA LES WEBSOCKET
+FAIRE UN SEREUR WEBSOCKET AVEC HANDLER
+
+
+
+Il va vous parllez de prisma migrate NE PAS USE 
+Utiliser plutot prisma db push
