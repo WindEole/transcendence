@@ -1,0 +1,140 @@
+#---------------------------------------------------------#
+#                         VERSION                         #
+#---------------------------------------------------------#
+
+# definir la version de docker-compose (DC) qu'on utilise. La 3 est la plus utilisee
+version: '3'
+
+#---------------------------------------------------------#
+#                         SERVICES                        #
+#---------------------------------------------------------#
+
+# l'ensemble des conteneurs qui doivent etre crees doivent etre definis sous 
+# l'argument services. Chaque conteneur commence avec un nom qui lui est propre
+
+# TRANS : la, l'objectif est de lancer les containers backend / frontend / postgreSQL en solo a partir d'images
+#         récupérées sur internet (DONC PAS DE CREATION DE DOCKERFILE pour le moment)
+
+services:
+
+# # ----------   BACKEND (nestjs sur node v18.15.0)   ---------- #
+
+  backend: # langage du back-end : node.js framework for building app
+    container_name: backend
+    image: node:18 # grace a ce nom, docker-compose va chercher sur Dockerhub le dockerfile de node 18 ! (pas besoin de le créer)
+    # build: ./backend
+    command: sh -c "tail -f /dev/null" # 1) cette premiere cde permet de maintenir ouvert le container backend pour pouvoir y accéder 
+    # && docker exec -it backend /bin/sh && npm install -g npm@9.6.3"
+    # command: sh -c "npm install"
+    # command: sh -c "npm install && npx prisma db push && npx prisma generate && npm run prisma_studio && npm run start:dev"
+    env_file:
+      - .env
+    environment: # si jamais on perd le fichier .env ou par sécurité, on pourra changer les variables ici
+      TEST : ${TEST}
+      BACKEND_PORT : ${BACKEND_PORT}
+      FRONTEND_PORT : ${FRONTEND_PORT}
+      POSTGRESQL_PORT : ${POSTGRESQL_PORT}
+      PRISMA_PORT : ${PRISMA_PORT}
+      DATABASE_URL: ${DATABASE_URL}
+    volumes:
+      - ./backend:/backend
+    working_dir: /backend
+    networks:
+      - pong_frontend
+      - pong_backend
+      # - multipong_nw
+    ports:
+      - ${BACKEND_PORT}:${BACKEND_PORT}
+      # - ${FRONTEND_PORT}:${FRONTEND_PORT}
+      # - ${POSTGRESQL_PORT} : ${POSTGRESQL_PORT}
+      - ${PRISMA_PORT}:${PRISMA_PORT} # peut-etre a retirer au rendu
+      # - 9229:9229 # C'est le port du debugger nestjs !
+    # restart: unless-stopped
+
+# # ----------   FRONTEND (react sur node v18.15.0)   ---------- #
+
+  frontend: # langage du front-end : react
+    container_name: frontend
+    image: node:18
+    command: sh -c "tail -f /dev/null"
+    env_file:
+      - .env
+    environment: # si jamais on perd le fichier .env ou par sécurité, on pourra changer les variables ici
+      TEST : ${TEST}
+      BACKEND_PORT : ${BACKEND_PORT}
+      FRONTEND_PORT : ${FRONTEND_PORT}
+      POSTGRESQL_PORT : ${POSTGRESQL_PORT}
+      PRISMA_PORT : ${PRISMA_PORT}
+    volumes:
+      - ./frontend:/frontend
+    working_dir: /frontend
+    networks:
+      - pong_frontend
+      # - multipong_nw
+    ports:
+      # - ${BACKEND_PORT}:${BACKEND_PORT}
+      - ${FRONTEND_PORT}:${FRONTEND_PORT}
+      # - ${POSTGRESQL_PORT} : ${POSTGRESQL_PORT}
+      # - ${PRISMA_PORT}:${PRISMA_PORT} # peut-etre a retirer au rendu
+      # - 9229:9229 # C'est le port du debugger nestjs !
+    # restart: unless-stopped
+
+# # ----------   POSTGRESQL   ---------- #
+
+  postgresql: # base de données ATTENTION : par défaut, PostgreSQL écoute sur le port 5432
+    container_name: postgresql
+    image: postgres:15.2-alpine # grace a ce nom, docker-compose va chercher sur Dockerhub le dockerfile de postgreSQL 15.2 ! (pas besoin de le créer)
+    # command: sh -c "tail -f /dev/null" # 1) cette premiere cde permet de maintenir ouvert le container backend pour pouvoir y accéder 
+    # && docker exec -it backend /bin/sh && npm install -g npm@9.6.3"
+    # command: sh -c "npm install"
+    # command: sh -c "npm install && npm run prisma_studio && npm run start:dev"
+    env_file:
+      - .env
+    environment: # si jamais on perd le fichier .env ou par sécurité, on pourra changer les variables ici
+      TEST : ${TEST}
+      POSTGRESQL_PORT : ${POSTGRESQL_PORT}
+      POSTGRES_PASSWORD : ${POSTGRES_PASSWORD}
+      POSTGRES_USER : ${POSTGRES_USER}
+      POSTGRES_DB : ${POSTGRES_DB}
+    volumes:
+      - postgresql:/var/lib/postgresql/data
+    networks:
+      - pong_backend
+      # - multipong_nw
+    restart: unless-stopped
+    # healthcheck: ATTENTION : si on utilise healthcheck, il faudra un service healthcheck controller...
+      # test: pg_isready -U ${POSTGRES_USER}
+      # interval: 10s
+      # timeout: 2s
+      # retries: 25
+      # start_period: 2s
+
+#---------------------------------------------------------#
+#                         NETWORK                         #
+#---------------------------------------------------------#
+
+# Un bridge Network utilise un logiciel qui permet aux containers connectés au meme bridge network
+# de communiquer entre eux, tout en isolant les containers qui ne sont pas connectés avec ce bridge.
+# Bénéfices d'un user-defined bridge network :
+# 1) Automatic DNS resolution between containers (pas besoin de --link)
+# 2) Better isolation : les containers ne sont pas rattachés au default network, et ne peuvent donc communiquer
+#     avec des réseaux autres
+# 3) Containers on same network share environnement variables
+
+networks:
+  # multipong_nw:
+    pong_frontend:
+      driver: bridge
+    pong_backend:
+      driver: bridge
+
+# --------------------------------------------------------#
+#                         VOLUMES                         #
+# --------------------------------------------------------#
+
+# pour TRANSCENDANCE : je vais tout mettre dans un seul volume
+
+volumes:
+  backend: {}
+  frontend: {}
+  postgresql: {}
