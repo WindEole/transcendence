@@ -81,6 +81,12 @@ echo "\033[32mnpx prisma init\033[0m"
 npx prisma init
 echo " "
 
+# DBML
+echo "\033[33mInstall DBML (generate a schema from Prisma schema)--------------\033[0m"
+echo "\033[32mnpm install -D prisma-dbml-generator\033[0m"
+npm install -D prisma-dbml-generator
+echo " "
+
 # END OF INSTALLATION
 echo "\033[1;36mThis is the end of basic installation, from now on, you have all the necessary files and
 repository to work on the project, you can modify them directly. 

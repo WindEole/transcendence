@@ -23,6 +23,11 @@
 # quand on installe quelque chose : vert !
 # information : jaune !
 
+# BEGIN INSTALLATION
+echo "\033[1;36mThis script will install the basic files and repository to work on the project :
+- React basic\033[0m"
+echo " "
+
 # NODE
 echo "\033[33mNode version ----------------------------------------------------\033[0m"
 node -v
@@ -61,33 +66,6 @@ echo " "
 
 # ========================================================= #
 
-# BEGIN INSTALLATION
-echo "\033[1;36mThis script will install the basic files and repository to work on the project :
-- ReactJS basic\033[0m"
-echo " "
-
-# NODE
-echo "\033[33mNode version ----------------------------------------------------\033[0m"
-node -v
-echo " "
-
-# NPM
-echo "\033[33mNpm version -----------------------------------------------------\033[0m"
-n="9.6.4"
-m=$(npm -v)
-if [ $n != $m ]; then
-	echo "\033[32mnpm install -g npm@9.6.4\033[0m"
-	npm install -g npm@9.6.4
-fi
-npm -v
-echo " "
-
-# NPM CLEAR CACHE (sinon plein d'erreurs à la longue...)
-echo "\033[33mClear npm cache pour éviter erreurs -----------------------------\033[0m"
-echo "\033[32mnpm cache clean --force\033[0m"
-npm cache clean --force
-echo " "
-
 # CREATE REACTJS APPLICATION
 echo "\033[33mCreation d'un projet reactjs-------------------------------------\033[0m"
 echo "\033[32mnpm install create-react-app\033[0m"
@@ -98,17 +76,14 @@ echo " "
 
 # ARBORESCENCE
 echo "\033[33mPlacer le new projet à la racine de frontend---------------------\033[0m"
+# ATTENTION : il y a une creation d'un repo node_modules à la racine lors du npm install create-react-app -> il faut le supprimer avant de mv le contenu de pong_arena_frontend
+echo "\033[32mrm -rf node_modules/\033[0m"
+rm -rf node_modules/
 echo "\033[32mmv pong_arena_frontend/* .\033[0m"
 mv pong_arena_frontend/* .
 echo "\033[32mrm -rf pong_arena_frontend/\033[0m"
 rm -rf pong_arena_frontend/
 echo " "
-
-# LANCER LE PROJET (on obtient alors le dossier dist (copie)) -> NON ! A faire dans la prochaine commande de docker-compose
-# echo "\033[33mLancer le projet en mode developpement---------------------------\033[0m"
-# echo "\033[32mnpm run start:dev\033[0m"
-# npm run start:dev
-# echo " "
 
 # END OF INSTALLATION
 echo "\033[1;36mThis is the end of basic installation, from now on, you have all the necessary files and

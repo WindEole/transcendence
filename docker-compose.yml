@@ -22,11 +22,8 @@ services:
   backend: # langage du back-end : node.js framework for building app
     container_name: backend
     image: node:18 # grace a ce nom, docker-compose va chercher sur Dockerhub le dockerfile de node 18 ! (pas besoin de le créer)
-    # build: ./backend
-    command: sh -c "tail -f /dev/null" # 1) cette premiere cde permet de maintenir ouvert le container backend pour pouvoir y accéder 
-    # && docker exec -it backend /bin/sh && npm install -g npm@9.6.3"
-    # command: sh -c "npm install"
-    # command: sh -c "npm install && npx prisma db push && npx prisma generate && npm run prisma_studio && npm run start:dev"
+    command: sh -c "tail -f /dev/null" # 1) cette premiere cde permet de maintenir ouvert le container backend pour pouvoir y accéder et lancer script
+    # command: sh -c "npm install && npm install -g npm@9.6.4 && npx prisma db push && npx prisma generate && npm run prisma_studio && npm run start:dev" # 2) cette deuxieme cde permet de maintenir ouvert le container backend et lancer prisma et nestjs
     env_file:
       - .env
     environment: # si jamais on perd le fichier .env ou par sécurité, on pourra changer les variables ici
