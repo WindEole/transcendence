@@ -1,0 +1,74 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider = "postgresql"
+    // url      = "postgresql://test:test@postgresql:5434/pong?schema=public"
+    url      = env("DATABASE_URL")
+}
+
+generator dbml {
+    projectDatabaseType = "PostgreSQL"
+    provider            = "prisma-dbml-generator"
+}
+
+// =============== NESTJS TUTO YOUTUBE https://www.youtube.com/watch?v=GHTA143_b-s =============== //
+
+model User {
+    id        Int      @id @default(autoincrement())
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+    email     String   @unique
+    hash      String
+    firstName String?
+    lastName  String?
+
+    bookmarks Bookmark[]
+
+    @@map("users") // @@map("string") permet de donner à notre model (syntax de class) un autre nom qui s'affichera dans prisma
+}
+
+model Bookmark {
+    id          Int      @id @default(autoincrement())
+    createdAt   DateTime @default(now())
+    updatedAt   DateTime @updatedAt
+    title       String   @unique
+    description String? // ? means that this field is optional
+    link        String
+
+    userId Int
+    user   User @relation(fields: [userId], references: [id])
+
+    @@map("bookmarks")
+}
+
+// =============== SAUVEGARDE =============== //
+
+// model Article {
+//   id          Int      @id @default(autoincrement())
+//   createdAt   DateTime @default(now())
+//   updatedAt   DateTime @updatedAt
+//   title       String   @unique
+//   description String? // ? means that this field is optional
+//   body        String
+//   published   Boolean  @default(false)
+// }
+
+// Here, you have created an Article model with several fields. Each field has
+// a name (id, title, etc.), a type (Int, String, etc.), and other optional attributes
+// (@id, @unique, etc.). Fields can be made optional by adding a ? after the field type.
+
+// The id field has a special attribute called @id. This attribute indicates that this 
+// field is the primary key of the model. The @default(autoincrement()) attribute indicates
+// that this field should be automatically incremented and assigned to any newly created record.
+
+// The published field is a flag to indicate whether an article is published or in draft mode.
+// The @default(false) attribute indicates that this field should be set to false by default.
+
+// The two DateTime fields, createdAt and updatedAt, will track when an article is created and when
+// it was last updated. The @updatedAt attribute will automatically update the field with the current
+// timestamp whenever an article is modified.date the field with the current timestamp any time an article is modified.

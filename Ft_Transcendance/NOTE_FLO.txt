@@ -1,0 +1,16 @@
+Faire un workflow pour le lint 
+
+Utiiliser swagger pour la com entre front et back 
+
+Prisma studio doit etre implementer -> OK FAIT
+
+Faire du prisma seed
+
+
+QUAND CA SERA LES WEBSOCKET
+FAIRE UN SERVEUR WEBSOCKET AVEC HANDLER
+
+
+
+Il va vous parler de prisma migrate NE PAS USE 	|
+Utiliser plutot prisma db push 					|-> OK FAIT

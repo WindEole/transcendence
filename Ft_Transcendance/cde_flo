@@ -1,0 +1,305 @@
+ 4074  docker-compose up
+ 4075  docker system prune -f
+ 4128  docker-compose ps
+ 4247  docker-compose --version
+ 4500  docker exec -it nginx bash
+ 4503  docker ps -a
+ 4512  ssh iderighe@localhost -p 4243
+ 4546  ssh-keygen -f "/mnt/nfs/homes/iderighe/.ssh/known_hosts" -R "[localhost]:4243"
+
+=========   PYTHON PISCINE   ==================
+
+ 4965  python -V
+ 4966  export MYPATH="/goinfre/$USER/miniconda3"
+ 4967  curl -LO "https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh"
+ 4968  sh Miniconda3-latest-Linux-x86_64.sh -b -p $MYPATH
+ 4969  $MYPATH/bin/conda init zsh
+ 4970  $MYPATH/bin/conda config --set auto_activate_base false
+ 4971  $MYPATH/bin/conda init zsh
+ 4972  source ~/.zshrc
+ 4974  env
+ 4975  export MYPATH="/goinfre/$USER/miniconda3"
+ 4976  sh Miniconda3-latest-Linux-x86_64.sh -b -p $MYPATH
+ 4977  sh Miniconda3-latest-Linux-x86_64.sh -b -p $MYPATH -u
+ 4978  $MYPATH/bin/conda init zsh
+ 4980  source ~/.zshrc
+ 4981  python -V
+ 4982  python3 -V
+ 4983  conda create --name 42AI-$USER python=3.7 jupyter pandas pycodestyle numpy
+ 4984  conda info --envs
+ 4985  conda activate 42AI-$USER
+ 4986  which python
+ 4987  python -V
+ 4988  python -c "print('Hello World !')"
+ 4989  conda activate 42AI-$USER
+ 4991  conda list
+ 4992  anaconda-navigator
+ 4993  python
+ 4994  conda search numpy
+ 4996  conda show numpy
+ 5021  conda info
+ 5022  conda search numpy --info
+ 5023  conda remove numpy
+ 5025  conda install numpy
+ 5038  touch exec.py
+ 5041  python exec.py
+ 5042  python3 exec.py
+ 5043  python3 exec.py "Hello, world  "Salut"\n"
+ 5044  python3 exec.py "Hello, world" "Salut"\n"\n"
+ 5045  python3 exec.py "Hello, world" "Salut"
+ 5046  python3 exec.py
+ 5047  python3 exec.py 'Hello' 'my Friend' | cat -e
+ 5048  python3 exec.py 'Hello' 'my Friend'
+ 5124  export MYPATH="sgoinfre/goinfre/Perso/iderighe/miniconda3\n"
+ 5127  sh Miniconda3-latest-Linux-x86_64.sh -b -p $MYPATH
+ 5128  export MYPATH="sgoinfre/goinfre/Perso/iderighe/miniconda3"
+ 5129  sh Miniconda3-latest-Linux-x86_64.sh -b -p $MYPATH
+ 5130  $MYPATH/bin/conda init bash
+ 5174  export MYPATH="/mnt/nfs/homes/iderighe/sgoinfre/goinfre/Perso/iderighe/miniconda3"
+ 5175  $MYPATH/bin/conda init zsh
+ 5182  sh Miniconda3-latest-Linux-x86_64.sh -b -p $MYPATH
+ 5183  sh Miniconda3-latest-Linux-x86_64.sh -b -p $MYPATH -u
+ 5184  $MYPATH/bin/conda init zsh
+ 5185  env
+ 5186  export CONDA_EXE="/mnt/nfs/homes/iderighe/sgoinfre/goinfre/Perso/iderighe/miniconda3/bin/conda"
+ 5187  env
+ 5188  export CONDA_PYTHON_EXE="/mnt/nfs/homes/iderighe/sgoinfre/goinfre/Perso/iderighe/miniconda3/bin/python"
+ 5189  $MYPATH/bin/conda init zsh
+ 5190  env
+ 5197  python3 count.py bonjour
+ 5198  python3 count.py text_analyser bonjour
+ 5199  python3 text_analyser bonjour
+ 5200  python3
+ 5211  
+ 5245  touch numeric.py
+ 5248  python3 numeric.py
+ 5292  
+ 5315  rm rf hashmaps.py
+ 5362  cat my_file.txt
+ 5371  python3 arguments.py 12 hello salut
+ 5463  python -V
+ 5464  python3 -V
+ 5465  touch conda_install.sh
+ 5468  bash conda_install.sh
+ 5469  source ~/.zshrc
+ 5470  conda info --envs
+ 5471  conda activate 42AI-$USER
+ 5472  which python
+ 5473  python -V
+ 5474  python -c "print('Hello World')"
+ 5475  python3
+ 5481  python3 exec.py
+ 5482  python3 exec.py 'Hello World !'
+ 5483  python3 exec.py 'Hello' 'My Friend !'
+ 5484  python3
+ 5485  python3 exec.py 'Hello' 'My Friend !'
+ 5487  python3 whois.py 12
+ 5488  python3 whois.py 3
+ 5489  python3 whois.py
+ 5490  python3 whois.py 0
+ 5491  python3 whois.py Hello
+ 5492  python3 whois.py 12 3
+ 5496  python3 count.py "Hello, how are You ?"
+ 5497  python3
+ 5498  python3 count.py "Hello, how are You ?"
+ 5499  
+ 5500  
+ 5505  bash conda_install.sh
+ 5506  conda activate 42AI-$USER
+ 5507  source ~/.zshrc
+ 5508  conda activate 42AI-$USER
+ 5509  python3
+ 5511  python3
+ 5515  ce ex03
+ 5518  python3 count.py
+ 5520  python3 count.py "Hello tout le Monde Entier"
+ 5521  python3 count.py "Hello tout le Monde Entier..."
+ 5522  python3 count.py "Hello, tout le Monde Entier..."
+ 5523  python3
+ 5524  python3 count.py
+ 5525  python3 count.py "Hello Tout le Monde"
+ 5526  python3
+ 5527  python3 count.py 42
+ 5528  python3
+ 5532  python3
+ 5533  python3 count.py 42
+ 5534  python3 count.py "Hello Tout le Monde"
+ 5535  python3 count.py
+ 5536  python3
+ 5537  python3 count.py
+ 5538  python3
+ 5543  touch operations.py
+ 5544  python3 operations.py
+ 5545  python3 operations.py 10 3 52
+ 5558  python3 operations.py 10 3 52
+ 5559  python3 operations.py 10
+ 5560  python3 operations.py 10 3
+ 5561  python3 operations.py 10 Hello
+ 5562  python3 operations.py 10 3
+ 5563  python3 operations.py 10 0
+ 5564  python3 operations.py 10 6
+ 5565  python3 operations.py 42 10
+ 5566  python3 operations.py 10 3
+ 5567  python3 operations.py 1 0
+ 5568  python3 operations.py
+ 5569  python3 operations.py 12 10 5
+ 5570  python3 operations.py one two
+ 5571  python3 operations.py one 12
+
+==============   FIN PYTHON   ==============
+
+ 6941  valgrind --leak-check=full --show-leak-kinds=all --track-fds=yes --show-reachable=yes --track-origins=yes ./Containers
+ 7387  c++ copy_construct.cpp -fsanitize=address -g3
+ 8634  ssh-keygen -t ed25519 -C "derighetti.isabelle@wanadoo.fr"
+ 8635  cat /mnt/nfs/homes/iderighe/.ssh/id_ed25519.pub
+
+==============   FT_IRC   ==================
+
+ 8722  irssi -c 127.0.0.1 -w 1234
+ 8723  valgrind --leak-check=full --show-leak-kinds=all --track-fds=yes --show-reachable=yes --track-origins=yes ./ircserv 6667 1234
+ 8839  nc -c 127.0.0.1 6667
+ 8851  git status
+ 8852  git add *
+ 8853  git commit -m "who whois et debug"
+ 8854  git push
+ 8855  git pull origin cgranja
+ 8935  git pull origin main
+ 8936  git checkout maim
+ 8939  git checkout iderighe
+ 9053  git checkout cgranja
+ 9143  git checkout
+ 9235  
+ 9243  git clone git@vogsphere.42paris.fr:vogsphere/intra-uuid-93490be9-5472-4e35-8725-3adecf81747c-4697444-cgranja irc
+ 9248  ./ircserv 6667 1234
+ 9270  git clone git@vogsphere.42paris.fr:vogsphere/intra-uuid-93490be9-5472-4e35-8725-3adecf81747c-4697444-cgranja irc
+ 9271  valgrind ./ircserv 6667 1234
+ 
+==============   FIN FT_IRC   ==================
+
+==============   FT_TRANSCENDANCE   ==================
+
+ 9298  npm i -g @nestjs/cli
+ 9302  
+ 9315  docker build -t nest-cloud-run .
+ 9319  docker build -t nest-cloud-run .
+ 9320  docker build -t pong .
+ 9321  docker build -t app .
+ 9322  docker system prune
+ 9440  
+ 9460  docker build
+ 9462  docker build -t nestJStest .
+ 9463  docker build -t nesttest .
+ 9466  npm init
+ 9467  npm install -g npm@9.5.1
+ 9470  npm run
+ 9475  
+ 9477  npm i -g @nestjs/cli
+ 9481  git clone https://github.com/nestjs/typescript-starter.git project
+ 9484  npm install
+ 9485  npm audit
+ 9487  npm run start
+ 9763  
+ 9852  nest version
+ 9853  npm i -g @nestjs/cli
+ 9868  docker build -t nest-cloud-run .
+ 9871  nx build api --prod
+ 9885  docker build -t test .
+ 9886  npm i -g @nest/cli
+ 9887  npm install
+ 9888  docker build -t test .
+ 9898  
+ 9903  nest new Multipong
+ 9904  npm i -g @nestjs/cli
+ 9905  ssh iderighe@localhost -p 4243
+ 9917  ssh-keygen -f "/mnt/nfs/homes/iderighe/.ssh/known_hosts" -R "[localhost]:4243"
+ 9920  
+ 9965  which npm
+ 9966  which node
+ 9984  nest new pong_api
+ 9985  which nest
+ 9986  npm i -g @nestjs/cli
+10000  
+10015  git clone https://github.com/rumpl/memphis.git
+10022  docker build -t notes-service .
+10027  docker build -t test .
+10030  node -v
+10031  alias nest="~/.npm/_npx/ccf722f030a36e55/node_modules/@nestjs/cli/bin/nest.js"
+10032  nest -v
+10034  unalias nest
+10035  which nest
+10041  which node
+10072  which npm
+10073  node -v
+10074  npm -v
+10075  npm i -g @nestjs/cli
+10091  npm i -g @nestjs/cli
+10093  nest new pong_arena
+10094  which nest
+10095  which npx
+10096  npx @nestjs/cli
+10097  which nest
+10098  npm install -g npm@9.6.2
+10099  npx install -g npm@9.6.2
+10100  npm install npm@latest -g
+10101  nest -v
+10102  npx -v
+10103  npm -v
+10104  which npx
+10105  nest new pong_arena
+10106  npx @nestjs/cli new pong_arena
+10121  ssh iderighe@localhost -p 4243
+10132  docker build -t test .
+10137  docker compose up
+10138  docker compose up --build
+10139  docker ps -a
+10141  while true do ;
+10142  while true do
+10143  while true do {}
+10144  while true do ()
+10145  while true do true
+10148  docker logs -f backend
+10149  docker exec -it backend /bin/sh
+10151  docker compose up -d --build
+10152  docker logs backend
+10165  docker system prune -a
+10172  docker compose down
+10177  docker compose down && docker compose up -d --build
+10180  ss -tunlp | grep 5555
+10181  ss -tunlp | grep 3000
+10183  git init
+10184  git add .
+10185  git status
+10186  git rm --cached .
+10187  git rm -r --cached .
+10188  git push
+10189  git remote add origin git@github.com:WindEole/transcendence.git
+10190  git push
+10191  git push --set-upstream origin master
+10193  touch readme.md
+10194  git add readme.md
+10195  git commit -m "First Commit"
+10196  git push
+10197  git push --set-upstream origin master
+10198  git branch launch_docker
+10199  git switch launch_docker
+10200  git add ..
+10201  git add .
+10202  git status
+10204  git restore --staged .env
+10205  touch .gitignore
+10207  git add .
+10208  git status
+10209  git commit 
+10210  git push origin launch_docker
+10235  which docker
+10236  docker -v
+10237  docker compose -v
+10244  docker compose down
+10266  docker system prune
+10294  npm init
+10305  docker start backend
+10308  docker start backend /bin/sh
+10309  history
+10312  touch cde_flo
+10313  history > cde_flo
+10314  cat cde_flo

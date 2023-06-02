@@ -1,0 +1,3 @@
+export * from './auth.dto';
+
+// ce sera pas nécessaire car on n'aura pas d'autres fichiers dans dto...
